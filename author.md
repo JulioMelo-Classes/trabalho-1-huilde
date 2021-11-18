@@ -2,8 +2,10 @@
 
 Preencha os dados abaixo para identificar a autoria do trabalho.
 
-- Nome: *\<insira seu nome aqui>*
-- Email: *\<insira seu email aqui>*
-- Turma: *\<insira sua turma aqui>*
+- Nome: *\<Huilde Viana Júnior>*
+- Email: *\<huildevj@gmail.com>*
+- Turma: *\<IMD0030-T01>*
 
+- Nome: *\<Huilde Viana Júnior>*
+- Email: *\<huildevj@gmail.com>*
 Repita os campos Nome e Email caso seja uma dupla
