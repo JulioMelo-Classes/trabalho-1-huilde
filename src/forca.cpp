@@ -1,5 +1,4 @@
 using namespace std;
-//using std::make_pair;
 #include <vector>
 #include <string>
 #include <fstream>
@@ -7,6 +6,11 @@ using namespace std;
 #include <algorithm>
 #include <iterator>
 #include "Foca.hpp"
+
+bool isNumber(std::string str)
+{
+    return str.find_first_not_of("0123456789") == string::npos;
+}
 /**
          * Cria a classe Forca
          * O construtor pode ou não validar os arquivos de entrada, no entanto, mesmo com 
@@ -28,7 +32,33 @@ Forca::Forca(std::string palavras, std::string scores)
          * razão correspondente de acordo com as especificações.
          * @return {T,""} se os arquivos estiverem válidos, {F,"razão"} caso contrário.
          */
-std::pair<bool, std::string> eh_valido();
+std::pair<bool, std::string> Forca::eh_valido(){
+std::fstream ValidaScores;
+std::fstream ValidaPalavras;
+std::string frequencia;
+std::string palavra;
+ValidaPalavras.open(m_arquivo_palavras, ios::in);
+  while (!ValidaPalavras.eof())
+  {
+    ValidaPalavras >> frequencia >> palavra;
+    if(palavra.size()<4){
+      return make_pair(false, "Uma das palavras possui frequência menor que 4");
+    }
+    if(!isNumber(frequencia)){
+      return make_pair(false, "Frequência de uma das palavras Inválida");
+    }
+    if (palavra.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-") != std::string::npos){
+     return make_pair(false, "Palavras com caracteres inválidos");
+}
+ValidaScores.open(m_arquivo_scores, ios::in);
+  while (!ValidaScores.eof())
+  {
+    //ValidaScores >>
+
+  }
+
+return  make_pair(true, "");
+}
 
 /**
          * Carrega os arquivos de scores e palavras preenchendo **ao menos** a estrutura m_palavras
@@ -56,7 +86,7 @@ void Forca::carrega_arquivos()
     media += m_palavras[i].second;
   }
   media = media / (m_palavras.size());
-  for (int i = 0; i < m_palavras.size(); i++)
+  for (int i = 0; i < m_palavras.size()-1; i++)
   {
     if (m_palavras[i].second > media)
     {
@@ -140,7 +170,7 @@ std::string Forca::get_palavra_atual(){
 bool Forca::palpite(char palpite){
   bool resultado = false;
   for (int i = 0; i <m_palavra_atual.size(); i++)
-  {if(toupper(palpite) == m_palavra_atual[i]){
+  {if(toupper(palpite) == toupper(m_palavra_atual[i])){
     m_palavraSecreta[i] = m_palavra_atual[i];
     resultado = true;
     m_pontos+=1;
@@ -150,7 +180,12 @@ bool Forca::palpite(char palpite){
     m_tentativas_restantes =m_tentativas_restantes -1;
     m_pontos-=1;
   }
- 
+ if(m_palavraSecreta == m_palavra_atual){
+   m_pontos+=1;
+   if(m_tentativas_restantes==6){
+     m_pontos +=1;
+   }
+ }
 return resultado;}
 
 /**
@@ -235,4 +270,12 @@ void Forca::imprimeForca(){
     break;
 
   }
+}
+bool verificaPalavra(char digito, std::vector<char> letras){
+for(int i = 0;i<letras.size();i++){
+        if(digito == letras[i]){
+             return false;
+        }
+   }
+   return true;  
 }

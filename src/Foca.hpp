@@ -4,7 +4,7 @@
 class Forca
 {
 public:
-    int m_pontos = 0;
+    
     enum Dificuldade
     {
         FACIL,
@@ -12,9 +12,11 @@ public:
         DIFICIL
     };
     std::string m_palavraSecreta; //<! Palavra sem os caaracteres revelados
+    std::vector<std::pair<std::string, int>> MaiorMedia; //<! vetor contendo as palavras com frequência maior qua a média
+    std::vector<std::pair<std::string, int>> MenorMedia; //<! vetor contendo as palavras com frequência menor qua a média
 private:
     //TODO: armazenar os scores?
-
+     int m_pontos = 0;//<! pontuação do jogador
     std::vector<std::pair<std::string, int>> m_palavras; //<! palavras e sua ocorrência no Corpus
 
     std::string m_arquivo_scores; //<! nome do arquivo contendo os scores
@@ -27,8 +29,6 @@ private:
 
     int m_tentativas_restantes = 6; //<! tentativas restantes
     int pontos;
-    std::vector<std::pair<std::string, int>> MaiorMedia; //<! vetor contendo as palavras com frequência maior qua a média
-    std::vector<std::pair<std::string, int>> MenorMedia; //<! vetor contendo as palavras com frequência menor qua a média
 
 public:
     /**
@@ -119,3 +119,6 @@ public:
     
 
 };
+
+bool verificaPalavra(char digito, std::vector<char> letras);
+bool isNumber(std::string str);
