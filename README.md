@@ -6,7 +6,7 @@ Para compilar o trabalho, rode os seguintes comandos dentro da pasta que esse ar
 ``
 g++ src/main.cpp src/forca.cpp
 ``
-# Para executar 
+# Para executar
 ``
 ./a.out data/palavras.txt data/scores.txt
 
@@ -19,23 +19,22 @@ g++ src/main.cpp src/forca.cpp
 ``
 ./a.out data/palavrasErro1.txt data/scores.txt
 ``
-## caso 2|Palavras que não tenham sua frequência correspondente, ou a frequência não seja um número inteiro positivo.
+## caso 2|Palavras que não tenham sua frequência correspondente, ou a frequência não seja um número inteiro positivo. 
 ``
 ./a.out data/palavrasErro2.txt data/scores.txt
 ``
-## caso 3|Palavras com tamanho menor ou do que 4.
+## caso 3|Palavras com tamanho menor ou do que 4. 
 ``
  ./a.out data/palavrasErro3.txt data/scores.txt
 ``
 ## validando o arquivo scores
-## caso 4|Presença de mais de 3 “;” em alguma linha
-
+## caso 4|Presença de mais de 3 “;” em alguma linha 
 
 ``
  ./a.out data/palavras.txt data/scoresErro1.txt
 
 ``
-## caso 5|Algum dos campos vazios
+## caso 5|Algum dos campos vazios 
 
 ``
  ./a.out data/palavras.txt data/scoresErro2.txt
