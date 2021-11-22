@@ -30,11 +30,13 @@ g++ src/main.cpp src/forca.cpp
 ## validando o arquivo scores
 ## caso 4|Presença de mais de 3 “;” em alguma linha
 
+
 ``
  ./a.out data/palavras.txt data/scoresErro1.txt
 
 ``
 ## caso 5|Algum dos campos vazios
+
 ``
  ./a.out data/palavras.txt data/scoresErro2.txt
 
