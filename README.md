@@ -25,18 +25,18 @@ g++ src/main.cpp src/forca.cpp
 ``
 ## caso 3|Palavras com tamanho menor ou do que 4.
 ``
-./a.out data/palavrasErro3.txt data/scores.txt
+ ./a.out data/palavrasErro3.txt data/scores.txt
 ``
 ## validando o arquivo scores
 ## caso 4|Presença de mais de 3 “;” em alguma linha
 
 ``
-./a.out data/palavras.txt data/scoresErro1.txt
+ ./a.out data/palavras.txt data/scoresErro1.txt
 
 ``
 ## caso 5|Algum dos campos vazios
 ``
-./a.out data/palavras.txt data/scoresErro2.txt
+ ./a.out data/palavras.txt data/scoresErro2.txt
 
 ``
 # limitações
