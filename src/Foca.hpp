@@ -112,6 +112,8 @@ public:
     void SetpalavraSecreta(std::string palavra);
     void imprimeForca(); // imprime a forma da forca dependendo da quantidade de tentativas restantes
     int getpontos();     // retorna os pontos;
+
+
  /**vê se ainda possui palavras válidas para a dificuldade.
   *@return T se sim, F caso contrário.
 */
@@ -119,6 +121,12 @@ public:
     
 
 };
-
+/**vê se ainda possui palavra possui caracteres válidos
+ * @return true caso sim, false caso não;
+*/
 bool verificaPalavra(char digito, std::vector<char> letras);
+
+/**vê se a string é um numero inteiro positivo
+ * @return true caso sim, false caso não;
+*/
 bool isNumber(std::string str);

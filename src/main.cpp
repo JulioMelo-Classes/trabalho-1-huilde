@@ -8,7 +8,6 @@
 #include <iterator>
 
 using namespace std;
-//token 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
 int main(int argc, char *argv[])
 {
   std::fstream arquivoPontos;
@@ -86,7 +85,7 @@ int main(int argc, char *argv[])
           {
             cout << Jogo.GetpalavraSecreta()[i] << " ";
           }
-          cout << "pontos: " << Jogo.getpontos() << endl;
+          cout <<endl<< "pontos: " << Jogo.getpontos() << endl;
           cout << "palpite: ";
           cin >> letra;
           std::string teste = Jogo.get_palavra_atual();
@@ -129,11 +128,11 @@ int main(int argc, char *argv[])
           cout << "pontos: " << Jogo.getpontos() << endl;
           cout << "O jogo acabou a palavra era " << Jogo.get_palavra_atual() << endl;
         }
-        Jogo.MaiorMedia.clear();
-        Jogo.MenorMedia.clear();
+      
         Jogo.set_tentativas_restantes(6);
       }
-
+       Jogo.MaiorMedia.clear();
+       Jogo.MenorMedia.clear();
       if(!Jogo.ContaPalavras()){
         cout<<"O Jogo foi encerrado pois você acertou todas as palavras disponivéis"<<endl;
       }
@@ -143,11 +142,11 @@ int main(int argc, char *argv[])
       getline(cin,nomeUsuario,'\n');
       std::fstream EscreverPontos;
       EscreverPontos.open(arquivoScores,ios::app);
-      EscreverPontos<<dificuldade<<"; "<<nomeUsuario<<";";
+      EscreverPontos<<endl<<dificuldade<<"; "<<nomeUsuario<<";";
       for(int i =0;i< Acertadas.size();i++){
         EscreverPontos<<Acertadas[i]<<",";
       }
-     EscreverPontos<<";"<<Jogo.getpontos()<<endl;
+     EscreverPontos<<";"<<Jogo.getpontos();
 
     }
     else if (escolha == 2)

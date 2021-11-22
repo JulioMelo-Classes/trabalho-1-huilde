@@ -1,3 +1,12 @@
 Fácil; Julio; CARRO, CART, CORACAO; 10
+Fácil; Julio; CORACAO; 5
 Difícil; Isaac; ; -4
 Médio; Ramon; PROFESSOR, CASA, DISCORD; 60
+Difícil; Ramon; PROFESSOR, CASA, DISCORD; 60
+MÉDIO; huilde;Brasil,;7
+MÉDIO; huilde;pessoas,;5
+DIFÍCIL; huilde;Segundo,;6
+FÁCIL; huilde;pessoas,;12
+FÁCIL; huilde;pessoas,;2
+FÁCIL; huilde;trabalho,;7
+DIFÍCIL; huilde;PRIMEIRO,;8

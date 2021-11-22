@@ -68,7 +68,7 @@ std::string array;
   { getline(ValidaScores,dificulty,';');  
     getline(ValidaScores,nome,';');
     getline(ValidaScores,array,';');
-    getline(ValidaScores,pontuacao);
+    getline(ValidaScores,pontuacao),'\n';
     if (dificulty.empty()||nome.empty()||pontuacao.empty())
     {
     return  make_pair(false,"Um dos campos está vazio");
@@ -91,8 +91,8 @@ std::string array;
   }
 
   /**
-         * Carrega os arquivos de scores e palavras preenchendo **ao menos** a estrutura m_palavras
-         */
+    * Carrega os arquivos de scores e palavras preenchendo **ao menos** a estrutura m_palavras
+   */
   void Forca::carrega_arquivos()
   {
     std::fstream arquivoPalavras;
@@ -104,7 +104,7 @@ std::string array;
       arquivoPalavras >> frequencia >> palavra;
       m_palavras.push_back(make_pair(palavra, frequencia));
     }
-    m_palavras.pop_back();
+    //m_palavras.pop_back();
     int media = 0;
     std::random_device rd;
     std::mt19937 g(rd());
@@ -116,7 +116,7 @@ std::string array;
       media += m_palavras[i].second;
     }
     media = media / (m_palavras.size());
-    for (int i = 0; i < m_palavras.size() - 1; i++)
+    for (int i = 0; i < m_palavras.size() ; i++)
     {
       if (m_palavras[i].second > media)
       {
@@ -152,6 +152,11 @@ std::string array;
   {
     //retornando a palavra correta com base na dificuldade do jogo
     std::string retorno;
+     std::vector<char> consoantes = {'B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'};
+     std::vector<char> vogais = {'A','E','I','O','U'};
+     std::vector<char> consoantesPalavra;
+     std::vector<char> vogaisPalavra;
+     char vogalescolhida;
     if (d == FACIL)
     {
       m_palavra_atual = MaiorMedia[0].first;
@@ -159,15 +164,47 @@ std::string array;
       {
         retorno.push_back('_');
       }
+        for(int i =0;i<m_palavra_atual.size();i++){
+        if(verificaPalavra(toupper(m_palavra_atual[i]),vogais)){
+        vogaisPalavra.push_back(m_palavra_atual[i]);
+        }
+      }
+      srand(time(NULL));
+      int numero = rand()% vogaisPalavra.size();
+      vogalescolhida = vogaisPalavra[numero];
+       for(int i =0;i<m_palavra_atual.size();i++){
+         if(toupper(vogalescolhida)== toupper(m_palavra_atual[i])){
+          retorno[i] = m_palavra_atual[i];
+         }
+      }
       MaiorMedia.erase(MaiorMedia.begin());
     }
     else if (d == MEDIO)
     {
-      m_palavra_atual = MaiorMedia[0].first;
+      int Escolhepalavra = rand()%3;
+      if(Escolhepalavra%3==0 && MenorMedia.size(>0)){
+        m_palavra_atual = MenorMedia[0].first;
+      }else{
+      m_palavra_atual = MaiorMedia[0].first;}
+      Escolhepalavra++;
       for (int i = 0; i < MaiorMedia[0].first.size(); i++)
       {
         retorno.push_back('_');
       }
+      for(int i =0;i<m_palavra_atual.size();i++){
+        if(!verificaPalavra(toupper(m_palavra_atual[i]),vogais)){
+        vogaisPalavra.push_back(m_palavra_atual[i]);
+        }
+      }
+      srand(time(NULL));
+      int numero = rand()% vogaisPalavra.size();
+      vogalescolhida = vogaisPalavra[numero];
+       for(int i =0;i<m_palavra_atual.size();i++){
+         if(toupper(vogalescolhida)== toupper(m_palavra_atual[i])){
+          retorno[i] = m_palavra_atual[i];
+         }
+      }
+     
       MaiorMedia.erase(MaiorMedia.begin());
     }
 
