@@ -182,7 +182,7 @@ std::string array;
     else if (d == MEDIO)
     {
       int Escolhepalavra = rand()%3;
-      if(Escolhepalavra%3==0 && MenorMedia.size(>0)){
+      if(Escolhepalavra%3==0 && MenorMedia.size() > 0){
         m_palavra_atual = MenorMedia[0].first;
       }else{
       m_palavra_atual = MaiorMedia[0].first;}
